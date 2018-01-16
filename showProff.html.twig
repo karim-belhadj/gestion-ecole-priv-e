@@ -1,0 +1,61 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+     {{parent()}}
+    <h1>Professeur</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ entity.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ entity.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Datenaissance</th>
+                <td>{{ entity.dateNaissance|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{{ entity.genre }}</td>
+            </tr>
+            <tr>
+                <th>Specialite</th>
+                <td>{{ entity.specialite }}</td>
+            </tr>
+            <tr>
+                <th>Tauxhoraire</th>
+                <td>{{ entity.tauxHoraire }}</td>
+            </tr>
+             <tr>
+                <th>description</th>
+                <td>
+                    <a href="{{path('professeur_show',{'id':entity.id})}}">
+                        <img src="{{asset('uploads/professeurs/'~entity.path)}}" alt=""class="img-circle">
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('professeur') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('professeur_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}
