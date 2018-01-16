@@ -1,7 +1,8 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Classe</h1>
+    {{parent()}}
+    <h1>Eleve</h1>
 
     <table class="record_properties">
         <tbody>
@@ -10,23 +11,75 @@
                 <td>{{ entity.id }}</td>
             </tr>
             <tr>
-                <th>Libelleclasse</th>
-                <td>{{ entity.libelleClasse }}</td>
+                <th>Nom</th>
+                <td>{{ entity.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ entity.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Datenaissance</th>
+                <td>{{ entity.datenaissance|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{{ entity.genre }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ entity.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ entity.tel }}</td>
+            </tr>
+            <tr>
+                <th>Nomtuteur</th>
+                <td>{{ entity.nomtuteur }}</td>
+            </tr>
+            <tr>
+                <th>Adressetuteur</th>
+                <td>{{ entity.adressetuteur }}</td>
+            </tr>
+            <tr>
+                <th>Teltuteur</th>
+                <td>{{ entity.teltuteur }}</td>
+            </tr>
+            <tr>
+                <th>Emailtuteur</th>
+                <td>{{ entity.emailtuteur }}</td>
+            </tr>
+            <tr>
+                <th>Professiontuteur</th>
+                <td>{{ entity.professiontuteur }}</td>
+            </tr>
+            <tr>
+                <th>Cintuteur</th>
+                <td>{{ entity.cintuteur }}</td>
+            </tr>
+            <tr>
+                <th>image eleve</th>
+                <td>
+                    <a href="{{path('eleve_show',{'id':entity.id})}}">
+                        <img src="{{asset('uploads/eleves/'~entity.path)}}" alt=""class="img-circle">
+                    </a>
+                </td>
             </tr>
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('classe') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('classe_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('eleve') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('eleve_edit', { 'id': entity.id }) }}">
+                Edit
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
 {% endblock %}

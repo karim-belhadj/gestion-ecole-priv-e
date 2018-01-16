@@ -1,15 +1,89 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Classe creation</h1>
+    {{parent()}}
+    <div class="container">
+        <div class="row" >
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Eleve creation</div>
+                    <div class="panel-body">
+                        {{ form_start(form, {'method': 'POST'}) }}
+                        <div class="form-group">
+                            {{form_label(form.nom)}}
+                            {{form_widget(form.nom, {'attr': {'class': 'form-control'}})}}
+                        </div>
+                        <div class="form-group">
+                            {{form_label(form.prenom)}}
+                            {{form_widget(form.prenom,{'attr': {'class': 'form-control'}})}}
+                        </div>
+                        <div class="form-group">
+                            {{form_label(form.datenaissance)}}
+                            {{form_widget(form.datenaissance,{'attr': {'class': 'form-control'}})}}
+                        </div>
 
-    {{ form(form) }}
+                        <div class="form-group">
+                            {{form_label(form.genre)}}
+                            {{form_widget(form.genre,{'attr': {'class': 'form-control'}})}}
+                        </div>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('classe') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+                        <div class="form-group">
+                            {{form_label(form.adresse)}}
+                            {{form_widget(form.adresse,{'attr': {'class': 'form-control'}})}}
+                        </div>
+
+                        <div class="form-group">
+                            {{form_label(form.tel)}}
+                            {{ form_widget(form.tel,{'attr': {'class': 'form-control'}}) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{form_label(form.nomtuteur)}}
+                            {{form_widget(form.nomtuteur,{'attr': {'class': 'form-control'}})}}
+                        </div>
+
+                        <div class="form-group">
+                            {{form_label(form.adressetuteur)}}
+                            {{form_widget(form.adressetuteur,{'attr': {'class': 'form-control'}})}}
+                        </div>
+
+                        <div class="form-group">
+                            {{form_label(form.teltuteur)}}
+                            {{form_widget(form.teltuteur,{'attr': {'class': 'form-control'}})}}
+                        </div>
+                        <div class="form-group">
+                            {{form_label(form.emailtuteur)}}
+                            {{form_widget(form.emailtuteur,{'attr': {'class': 'form-control'}})}}
+                        </div>
+                        <div class="form-group">
+                            {{form_label(form.professiontuteur)}}
+                            {{form_widget(form.professiontuteur,{'attr': {'class': 'form-control'}})}}
+                        </div>
+
+                        <div class="form-group">
+                            {{form_label(form.cintuteur)}}
+                            {{form_widget(form.cintuteur,{'attr': {'class': 'form-control'}})}}
+                        </div>
+                        <div class="form-group">
+                            {{form_label(form.file)}}
+                            {{form_widget(form.file,{'attr': {'class': 'form-control'}})}}
+                        </div>
+
+                        {{form_widget(form.submit,{'attr': {'class': 'btn btn-primary'}})}}
+                        {{  form_rest(form)}}
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('eleve') }}">
+                Back to the list
+            </a>
+        </li>
+    </ul>
 {% endblock %}
